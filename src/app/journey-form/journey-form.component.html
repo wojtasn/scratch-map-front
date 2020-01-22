@@ -1,0 +1,12 @@
+<h2>Dodaj nową podróż</h2>
+<form (ngSubmit)="onSubmit()" [formGroup]="newjourney">
+  <span>Nazwa:
+    <input type="text" formControlName="name">
+  </span>
+  <span>Jaki kraj odwiedzasz?
+    <select formControlName="country">
+      <option *ngFor="let country of countries | async" [value]="country.id">{{country.name}}</option>
+    </select>
+  </span>
+  <button type="submit">Dodaj podróż</button>
+</form>

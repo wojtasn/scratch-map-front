@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Country } from '../shared/model/country';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CountryService } from '../service/country-service.service';
-import { userInfo } from 'os';
 
 @Component({
   selector: 'app-country-form',
@@ -14,17 +13,17 @@ export class CountryFormComponent implements OnInit {
   country: Country;
 
   constructor(private root: ActivatedRoute, private router: Router, private countryService: CountryService) {
-    this.country = new Country();
+    this.country = { name: null }
   }
 
   ngOnInit() {
   }
 
   onSubmit() {
-    this.countryService.save(this.country).subscribe(result => this.gotoCountriesList());
+    this.countryService.save(this.country).subscribe(result => this.goToCountriesList());
   }
 
-  gotoCountriesList() {
+  goToCountriesList() {
     this.router.navigate(['/countries']);
   }
 

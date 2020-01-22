@@ -1,0 +1,7 @@
+<div>
+  <div *ngFor="let user of users">{{user.id}}, {{user.email}}<button (click)=showCountries(user.id)>Moje
+      państwa</button><button (click)=showFormForNewJourney(user.id)>Dodaj podróż</button>
+  </div>
+  <app-visited-countries [countries]="countries">
+  </app-visited-countries>
+</div>
